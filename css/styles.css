@@ -1,0 +1,321 @@
+/* ===================================
+   ESTILOS GLOBALES WALLET
+   =================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(135deg, #e8e9ec 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+/* ===================================
+   BARRA DE NAVEGACIÓN
+   =================================== */
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* ===================================
+   TARJETAS
+   =================================== */
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.card-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px 10px 0 0;
+  padding: 30px;
+  text-align: center;
+}
+
+.card-title {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* ===================================
+   TARJETA DE SALDO
+   =================================== */
+
+.balance-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.balance-card h5 {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 15px;
+}
+
+.balance-card h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* ===================================
+   FORMULARIOS
+   =================================== */
+
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.alias {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+/* ===================================
+   BOTONES
+   =================================== */
+
+.btn-block {
+  border-radius: 5px;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Estilos base de botones */
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning {
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+/* Hover común para todos los botones */
+.btn-primary:hover,
+.btn-success:hover,
+.btn-info:hover,
+.btn-warning:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+}
+
+.btn-info {
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+}
+
+.btn-info:hover {
+  background: linear-gradient(135deg, #138496 0%, #17a2b8 100%);
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+}
+
+.btn-warning:hover {
+  background: linear-gradient(135deg, #ff9800 0%, #ffc107 100%);
+}
+
+.menu-btn {
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+/* ===================================
+    MENÚ
+   =================================== */
+
+.menu-grid {
+  display: grid;
+  gap: 15px;
+}
+
+/* ===================================
+   LISTAS DE CONTACTOS
+   =================================== */
+
+.list-group-item {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.contact-details {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* ===================================
+   TRANSACCIONES
+   =================================== */
+
+.transaction-item {
+  padding: 18px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-item:hover {
+  background-color: #f8f9fa;
+  padding-left: 25px;
+}
+
+.transaction-description {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.transaction-amount {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 5px;
+  min-width: 120px;
+  text-align: right;
+}
+
+.amount-positive {
+  color: #28a745;
+  background-color: #d4edda;
+}
+
+.amount-negative {
+  color: #dc3545;
+  background-color: #f8d7da;
+}
+
+.transaction-icon {
+  margin-right: 12px;
+  font-size: 20px;
+}
+
+/* ===================================
+   UTILIDADES
+   =================================== */
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+/* ===================================
+   RESPONSIVO
+   =================================== */
+
+@media (max-width: 576px) {
+  .card-title {
+    font-size: 24px;
+  }
+
+  .balance-card h1 {
+    font-size: 36px;
+  }
+
+  .transaction-amount {
+    min-width: 100px;
+    font-size: 16px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}

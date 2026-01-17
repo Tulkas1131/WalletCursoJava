@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alke Wallet - Enviar Dinero</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="main-content">
+    <nav class="navbar navbar-dark bg-dark mb-5">
+      <span class="navbar-brand ml-3">💳 Mi Alke Wallet</span>
+      <div>
+        <span class="text-white mr-3">
+          <a href="login.html" class="btn btn-outline-danger btn-sm">🚪 Cerrar Sesión</a>
+        </span>
+      </div>
+    </nav>
+
+    <div class="container" style="max-width: 800px;">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">📤 Enviar Dinero</h2>
+        </div>
+        <div class="card-body p-5">
+          <!-- Tarjeta de saldo -->
+          <div class="balance-card">
+            <h5>💰 Saldo en tu Cuenta</h5>
+            <!-- Saldo dinámico desde localStorage -->
+            <h1 id="saldoDisplay">$60,000</h1>
+          </div>
+
+          <!-- Área para mostrar alertas de Bootstrap dinámicamente -->
+          <div id="messageArea"></div>
+          <!-- Formulario de búsqueda con evento keyup para filtrar en tiempo real -->
+          <form id="searchForm">
+            <div class="form-group mb-4">
+              <label for="searchContact" class="font-weight-bold text-dark">🔍 Buscar Contacto:</label>
+              <!-- Input de búsqueda con evento keyup para filtrado dinámico -->
+              <input type="text" class="form-control" id="searchContact" placeholder="Escribe nombre o alias...">
+            </div>
+            <!-- Botón para mostrar/ocultar modal de nuevo contacto con jQuery -->
+            <button type="button" class="btn btn-warning btn-block mb-4" id="btnAgregarContacto">➕ Agregar Nuevo
+              Contacto</button>
+          </form>
+
+          <h5 class="mt-5 mb-4 font-weight-bold">👥 Tus Contactos</h5>
+          <!-- Contenedor dinámico para mostrar lista de contactos filtrada -->
+          <div id="contactList"></div>
+
+          <div class="text-center mt-5">
+            <a href="menu.html" class="btn btn-outline-secondary btn-block">← Volver al Menú Principal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Bootstrap para agregar nuevo contacto con validaciones -->
+    <div class="modal fade" id="modalContacto" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">➕ Agregar Nuevo Contacto</h5>
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          </div>
+          <!-- Formulario con validaciones de campos obligatorios y formato Número de Cuenta -->
+          <form id="formNuevoContacto">
+            <div class="modal-body">
+              <!-- Área para mostrar errores de validación -->
+              <div id="formErrors"></div>
+              <div class="form-group">
+                <label for="nombreApellido">Nombre y Apellido</label>
+                <input type="text" class="form-control" id="nombreApellido" required>
+                <small class="form-text text-muted">Campo obligatorio</small>
+              </div>
+              <div class="form-group">
+                <label for="numeroDeCuenta">Número de Cuenta</label>
+                <!-- Input para Numero deCuenta con validación de 22 dígitos -->
+                <input type="text" class="form-control" id="numeroDeCuenta" placeholder="22 dígitos" required>
+                <small class="form-text text-muted">Debe tener 22 dígitos</small>
+              </div>
+              <div class="form-group">
+                <label for="alias">Tipo de Cuenta</label>
+                <select class="form-control" id="alias" required>
+                  <option value="">-- Selecciona una opción --</option>
+                  <option value="vista">Vista</option>
+                  <option value="corriente">Cuenta Corriente</option>
+                  <option value="ahorro">Ahorro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="banco">Nombre del Banco</label>
+                <input type="text" class="form-control" id="banco" required>
+                <small class="form-text text-muted">Campo obligatorio</small>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Agregar Contacto</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Bootstrap para enviar dinero a un contacto seleccionado -->
+    <div class="modal fade" id="modalEnviar" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- Título dinámico que muestra el nombre del contacto seleccionado -->
+            <h5 class="modal-title">💸 Enviar Dinero a <span id="contactoSeleccionado"></span></h5>
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          </div>
+          <form id="formEnviarDinero">
+            <div class="modal-body">
+              <!-- Área para mostrar errores de validación y saldo insuficiente -->
+              <div id="envioErrors"></div>
+              <div class="form-group">
+                <label for="montoEnvio">Monto a Enviar ($)</label>
+                <input type="number" class="form-control" id="montoEnvio" min="0" step="0.01" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Confirmar Envío</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer text-white">
+      <p class="mb-0">💰 Alke Wallet © 2026</p>
+      <p class="text-muted"><small>Curso Java Full Stack</small></p>
+    </div>
+  </div>
+
+  <!-- Importación de jQuery para selectores y eventos simplificados -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <!-- Importación de Bootstrap JS para componentes interactivos -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!-- Importación del archivo app.js con todo el código personalizado -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>

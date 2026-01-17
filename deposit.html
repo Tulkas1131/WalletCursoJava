@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alke Wallet - Depositar</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="main-content">
+    <nav class="navbar navbar-dark bg-dark mb-5">
+      <span class="navbar-brand ml-3">💳 Mi Alke Wallet</span>
+      <div>
+        <span class="text-white mr-3">
+          <a href="login.html" class="btn btn-outline-danger btn-sm">🚪 Cerrar Sesión</a>
+        </span>
+      </div>
+    </nav>
+
+    <div class="container" style="max-width: 800px;">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">💰 Depositar Dinero</h2>
+        </div>
+        <div class="card-body p-5">
+          <!-- Tarjeta de saldo -->
+          <div class="balance-card">
+            <h5>💰 Saldo en tu Cuenta</h5>
+            <!-- Saldo dinámico desde localStorage -->
+            <h1 id="saldoDisplay">$60,000</h1>
+          </div>
+
+          <!-- Área para mostrar alertas de Bootstrap dinámicamente -->
+          <div id="messageArea"></div>
+
+          <!-- Formulario de depósito -->
+          <form id="depositForm">
+            <div class="form-group mb-4">
+              <label for="depositAmount" class="font-weight-bold text-dark">📊 Monto a Depositar:</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input type="number" class="form-control" id="depositAmount" placeholder="0.00" min="0" step="0.01"
+                  required>
+              </div>
+            </div>
+            <!-- Leyenda para mostrar el monto depositado dinámicamente -->
+            <div id="montoDepositado"></div>
+            <button type="submit" class="btn btn-success btn-block mb-3">✓ Realizar Depósito</button>
+          </form>
+
+          <hr class="my-4">
+
+          <div class="text-center mt-3">
+            <a href="menu.html" class="btn btn-outline-secondary btn-block">← Volver al Menú Principal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer text-white">
+      <p class="mb-0">💰 Alke Wallet © 2026</p>
+      <p class="text-muted"><small>Curso Java Full Stack</small></p>
+    </div>
+  </div>
+
+  <!-- Importación de jQuery para selectores y eventos simplificados -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <!-- Importación de Bootstrap JS para componentes interactivos -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!-- Importación del archivo app.js con todo el código personalizado -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>

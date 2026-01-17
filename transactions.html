@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alke Wallet - Últimos Movimientos</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="main-content">
+    <nav class="navbar navbar-dark bg-dark mb-5">
+      <span class="navbar-brand ml-3">💳 Mi Alke Wallet</span>
+      <div>
+        <span class="text-white mr-3">
+          <a href="login.html" class="btn btn-outline-danger btn-sm">🚪 Cerrar Sesión</a>
+        </span>
+      </div>
+    </nav>
+
+    <div class="container" style="max-width: 800px;">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">📋 Últimos Movimientos</h2>
+        </div>
+        <div class="card-body p-5">
+          <!-- Tarjeta de saldo -->
+          <div class="balance-card">
+            <h5>💰 Saldo en tu Cuenta</h5>
+            <!-- Saldo dinámico desde localStorage -->
+            <h1 id="saldoDisplay">$60,000</h1>
+          </div>
+
+          <!-- Selector para filtrar transacciones por tipo -->
+          <div class="form-group mb-4">
+            <label for="filtroTransacciones" class="font-weight-bold text-dark">🔍 Filtrar por Tipo:</label>
+            <!-- Select con opciones de filtrado dinámico -->
+            <select class="form-control" id="filtroTransacciones"
+              style="color: #333; background-color: #fff; padding: 10px 12px; height: auto; line-height: 1.5;">
+              <option value="">-- Todos los movimientos --</option>
+              <option value="Depósito">💵 Depósito</option>
+              <option value="Envío de dinero">📤 Envío de dinero</option>
+              <option value="Transferencia recibida">📥 Transferencia recibida</option>
+            </select>
+          </div>
+
+          <!-- Contenedor para mostrar lista de transacciones filtradas -->
+          <div class="list-group list-group-flush" id="transactionList">
+            <p class="p-5 text-muted">Cargando movimientos...</p>
+          </div>
+
+          <div class="p-5 text-center mt-4">
+            <a href="menu.html" class="btn btn-outline-secondary">
+              ← Volver al Menú Principal
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ FOOTER -->
+    <div class="footer text-white">
+      <p class="mb-0">💰 Alke Wallet © 2026</p>
+      <p class="text-muted"><small>Curso Java Full Stack</small></p>
+    </div>
+  </div>
+
+  <!-- jQuery para selectores y eventos simplificados -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <!-- Bootstrap JS para componentes interactivos -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!-- app.js con todo el código personalizado -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>
