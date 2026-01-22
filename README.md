@@ -26,7 +26,7 @@ Este es un proyecto de billetera digital (simulador) desarrollado como parte del
 
 ## 👤 Autor
 
-- **Nombre**: [Tu Nombre Aquí]
+- **Nombre**: [A.C.]
 - **Curso**: Java Full Stack 2026
 
 ---
