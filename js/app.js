@@ -161,7 +161,7 @@ $('#depositForm').submit(function (e) {
   transacciones.unshift({
     tipo: 'Depósito',
     monto: monto,
-    fecha: new Date().toLocaleString('es-AR'),
+    fecha: new Date().toLocaleString('es-CL'),
     icono: '💵'
   });
   localStorage.setItem('transacciones', JSON.stringify(transacciones));
@@ -170,8 +170,8 @@ $('#depositForm').submit(function (e) {
   const alertaExito = `
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       <strong>✓ ¡Depósito Exitoso!</strong>
-      <br>Monto depositado: <strong>$${monto.toFixed(2)}</strong>
-      <br>Nuevo saldo: <strong>$${nuevoSaldo.toFixed(2)}</strong>
+      <br>Monto depositado: <strong>$${monto.toLocaleString('es-CL')}</strong>
+      <br>Nuevo saldo: <strong>$${nuevoSaldo.toLocaleString('es-CL')}</strong>
       <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
     </div>
   `;
@@ -180,7 +180,7 @@ $('#depositForm').submit(function (e) {
   // Leyenda visible del monto depositado debajo del formulario
   const leyendaDeposito = `
     <div class="alert alert-primary">
-      💵 <strong>Monto depositado:</strong> $${monto.toFixed(2)}
+      💵 <strong>Monto depositado:</strong> $${monto.toLocaleString('es-CL')}
     </div>
   `;
   montoDepositadoArea.html(leyendaDeposito);
@@ -199,7 +199,7 @@ function registrarTransaccion(tipo, monto, icono, contacto = null) {
   transacciones.unshift({
     tipo: tipo,
     monto: monto,
-    fecha: new Date().toLocaleString('es-AR'),
+    fecha: new Date().toLocaleString('es-CL'),
     icono: icono,
     contacto: contacto
   });
@@ -386,7 +386,7 @@ $('#formEnviarDinero').submit(function (e) {
     tipo: 'Envío de dinero',
     monto: monto,
     contacto: contactoActual.nombre,
-    fecha: new Date().toLocaleString('es-AR'),
+    fecha: new Date().toLocaleString('es-CL'),
     icono: '📤'
   });
   localStorage.setItem('transacciones', JSON.stringify(transacciones));
@@ -395,7 +395,7 @@ $('#formEnviarDinero').submit(function (e) {
   $('#messageArea').html(`
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       <strong>✓ ¡Transferencia Exitosa!</strong>
-      <br>Se envió $${monto.toFixed(2)} a <strong>${contactoActual.nombre}</strong>
+      <br>Se envió $${monto.toLocaleString('es-CL')} a <strong>${contactoActual.nombre}</strong>
       <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
     </div>
   `);
@@ -426,21 +426,21 @@ const listaTransaccionesDefault = [
   {
     tipo: 'Depósito',
     monto: 5000,
-    fecha: new Date(Date.now() - 86400000).toLocaleString('es-AR'),
+    fecha: new Date(Date.now() - 86400000).toLocaleString('es-CL'),
     icono: '💵'
   },
   {
     tipo: 'Envío de dinero',
     monto: 1500,
     contacto: 'Carlos López',
-    fecha: new Date(Date.now() - 172800000).toLocaleString('es-AR'),
+    fecha: new Date(Date.now() - 172800000).toLocaleString('es-CL'),
     icono: '📤'
   },
   {
     tipo: 'Transferencia recibida',
     monto: 3000,
     contacto: 'María García',
-    fecha: new Date(Date.now() - 259200000).toLocaleString('es-AR'),
+    fecha: new Date(Date.now() - 259200000).toLocaleString('es-CL'),
     icono: '📥'
   }
 ];
@@ -493,7 +493,7 @@ function mostrarUltimosMovimientos(filtro = '') {
           </div>
         </div>
         <!-- Mostrar monto con signo y color según si es entrada o salida -->
-        <span class="transaction-amount ${claseMonto}">${signo} $${trans.monto.toFixed(2)}</span>
+        <span class="transaction-amount ${claseMonto}">${signo} $${trans.monto.toLocaleString('es-CL')}</span>
       </div>
     `;
   });
