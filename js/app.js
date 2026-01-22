@@ -120,7 +120,7 @@ $(window).on('load', function () {
 $('#btnVolverIndex').on('click', function () {
   mostrarNotificacion('🔄 Redirigiendo a la <strong>Página Principal</strong>...', 'info');
   setTimeout(() => {
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
   }, 500);
 });
 
